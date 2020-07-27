@@ -11,6 +11,15 @@ class MyHomePage extends StatelessWidget {
     Transaction(id: 't1', title: 'New shoes', amount: 69.00, date: DateTime.now()),
     Transaction(id: 't2', title: 'Socks', amount: 16.00, date: DateTime.now())
   ];
+
+  // String titleInput;
+  // String amountInput;
+
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,8 +28,9 @@ class MyHomePage extends StatelessWidget {
           title: Text('My sheep had run amok')
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround, //esse é o tipo o flex do flutter
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          // mainAxisAlignment: MainAxisAlignment.spaceAround, //esse é o tipo o flex do flutter
+          // crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
               width: double.infinity,
@@ -28,6 +38,42 @@ class MyHomePage extends StatelessWidget {
                 color: Colors.blue,
                 child: Text('Chart'),
                 elevation: 5,
+              ),
+            ),
+            Card(
+              elevation: 50,
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    TextField(
+                      cursorColor: Colors.purple,
+                      controller: titleController,
+                      decoration: InputDecoration(
+                        labelText: 'Title'
+                      ),
+                      onChanged: (value) {
+                        print(titleController.text);
+                      },
+                    ),
+                    TextField(
+                      cursorColor: Colors.purple,
+                      controller: amountController,
+                      decoration: InputDecoration(
+                        labelText: 'Amount'
+                      ),
+                      onChanged: (value) {
+
+                      },
+                    ),
+                    FlatButton(
+                      child: Text('Add Transaction'),
+                      textColor: Colors.purple,
+                      onPressed: () {
+                      },
+                    )
+                  ],
+                )
               ),
             ),
             Column(
