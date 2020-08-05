@@ -24,7 +24,7 @@ class _NewTransactionState extends State<NewTransaction> {
 
     //widget. permite acessar as propriedades e métodos do widget dentro do state
     widget.addTx(enteredTitle, enteredAmount);
-    
+    Navigator.of(context).pop();
   }
   
   @override
